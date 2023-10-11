@@ -1,0 +1,11 @@
+<ul class="list-group" *ngIf="films">
+    <app-film *ngFor="let film of films; let i = index">
+        [filmName]="film.name"
+        [filmOnAir]="film.onAir"
+        [filmAffiche]="film.affiche"
+        [index]="i"
+        [id]="film.id"
+    </app-film>
+</ul>
+<br>
+<button class="btn" btn-outline-success></button>

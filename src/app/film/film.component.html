@@ -1,4 +1,4 @@
-<li [ngClass]=" {
+<!-- <li [ngClass]=" {
   'list-group-item': true,
   'list-group-item-info': filmOnAir == true,
   'list-group-item-warning': filmOnAir == false
@@ -12,5 +12,30 @@
     <h3 [ngStyle]="{color : changeColor()}" >Film : {{filmName}} -- Visibilité : {{getOnAir()}}</h3>
     <img [src]="filmAffiche" alt="" class="affiche">
     <button class="btn btn-outline-success" (click)="onWatchFilm()">Regarder</button>
-    <!-- <input type="text" class="form-control" [(ngModel)]="filmName"> -->
+     <input type="text" class="form-control" [(ngModel)]="filmName"> 
+</li> -->
+
+<li [ngClass]=" { 'list-group-item': true,
+'list-group-item-info': filmOnAir == true,
+'list-group-item-warning': filmOnAir == false }">
+  <div class="row">
+  <div class="col-2">
+    <img class="affiche" [src]="filmAffiche">
+  </div>
+  <div class="col-8">
+      <div class="onAir" *ngIf="filmOnAir == false">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Blu-ray_Disc.svg/1200px-Blu-ray_Disc.svg.png">
+      </div>
+      <div class="onAir" *ngIf="filmOnAir == true">
+        <img src="https://fr.web.img3.acsta.net/r_654_368/newsv7/21/04/29/14/22/0010719.jpg">
+      </div>
+      <h3 [ngStyle]="{color: changeColor()}" >Film : {{ filmName }}</h3>
+      <button class="btn btn-outline-success" (click)="onWatchFilm()">Regarder</button> <br>
+      <button class="btn btn-outline-info" (click)="onSwitch()">Switch</button>
+    </div>
+    <div class="col-2">
+      <a [routerLink]="['/modif', id]" class="btn btn-outline-warning">M</a>
+      <button class="btn btn-danger">X</button>
+    </div>
+  </div>
 </li>

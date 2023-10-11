@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FilmService } from '../services/film/film.service';
 
 @Component({
   selector: 'app-film',
@@ -12,8 +13,9 @@ export class FilmComponent implements OnInit{
   @Input() filmOnAir = false;
   @Input() filmAffiche = "";
   @Input() index = 0;
+  @Input() id: number = 0;
 
-  constructor(){}
+  constructor(private Film: FilmService){}
 
   ngOnInit(): void {
       
@@ -29,5 +31,9 @@ export class FilmComponent implements OnInit{
 
   changeColor() {
     return this.filmOnAir ? 'purple' : 'red';
+  }
+
+  onSwitch() {
+    this.Film.switchOnAir(this.index);
   }
 }
