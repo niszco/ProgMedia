@@ -11,6 +11,7 @@ export class FilmComponent implements OnInit{
   @Input() filmName = "";
   @Input() filmOnAir = false;
   @Input() filmAffiche = "";
+  @Input() index = 0;
 
   constructor(){}
 
@@ -24,5 +25,9 @@ export class FilmComponent implements OnInit{
 
   onWatchFilm() {
     console.log("Lecture du film démarré !")
+  }
+
+  changeColor() {
+    return this.filmOnAir ? 'purple' : 'red';
   }
 }
